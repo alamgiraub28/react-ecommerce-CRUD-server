@@ -11,7 +11,10 @@
   app.use(cors());
 
 
-  const port = 5500
+  const port = 5500;
+  app.get('/', (req, res) => {
+    res.send('Server Working...')
+  });
   
   const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
   client.connect(err => {
@@ -73,10 +76,6 @@
       })
 
   });
-
-app.get('/', (req, res) => {
-      res.send('Wait Please! Server Working...')
-})
 
 app.listen(process.env.PORT || port);
 
